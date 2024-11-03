@@ -1,2 +1,2 @@
-# bychat
-ByChat Custom serber AI for Gemini
+# ByChat
+ByChat Custom server AI for Gemini
