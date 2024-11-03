@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        body {
+            font-family: "Inter", sans-serif;
+            font-weight: 400;
+            background-color: #1E1E1E;
+            text-align: center;
+            padding: 50px;
+        }
+
+        h2 {
+            color: #7f7f7f;
+        }
+
+        form {
+            max-width: 300px;
+            margin: 0 auto;
+            background-color: #141414;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            color: #555;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+            background-color: #1E1E1E;
+            color: white;
+            border: none;
+        }
+
+        input[type="submit"] {
+            background-color: #4caf50;
+            color: #fff;
+            cursor: pointer;
+        }
+        p{
+            color: #7f7f7f;
+        }
+        a {
+            color: #3498db;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+        #delete{
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Account</h2>
+    {% if error %}
+    <p style="color: red;">{{ error }}</p>
+    {% endif %}
+    <form method="post">
+        <label for="email">Email:</label>
+        <input type="email" name="email" value="{{ user.email }}" required><br>
+        <label for="first_name">First Name:</label>
+        <input type="text" name="first_name" value="{{ user.first_name }}" required><br>
+        <label for="last_name">Last Name:</label>
+        <input type="text" name="last_name" value="{{ user.last_name }}" required><br>
+        {{ turnstile }}<br>
+        <input type="submit" value="Update">
+        <p>Back main page <a href="{{ url_for('index') }}"> BACK</a></p>
+        <p>delete my account <a id="delete" href="{{ url_for('delete_account') }}"> DELETE</a></p>
+    </form>
+</body>
+
+</html>
